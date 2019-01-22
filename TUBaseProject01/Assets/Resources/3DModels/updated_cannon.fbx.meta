@@ -3,22 +3,12 @@ guid: a24dd0ae303a5d0468a100b4cea329cc
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: Camera
-    100002: Camera.001
-    100004: Lamp
-    100006: Light
-    100008: //RootNode
-    100010: "\u5186\u67F1.000"
-    100012: "\u5186\u67F1.001"
-    400000: Camera
-    400002: Camera.001
-    400004: Lamp
-    400006: Light
-    400008: //RootNode
-    400010: "\u5186\u67F1.000"
-    400012: "\u5186\u67F1.001"
-    2000000: Camera
-    2000002: Camera.001
+    100000: //RootNode
+    100002: "\u5186\u67F1.000"
+    100004: "\u5186\u67F1.001"
+    400000: //RootNode
+    400002: "\u5186\u67F1.000"
+    400004: "\u5186\u67F1.001"
     2100000: Material.001
     2100002: "\u30DE\u30C6\u30EA\u30A2\u30EB.001"
     2300000: "\u5186\u67F1.000"
@@ -27,19 +17,7 @@ ModelImporter:
     3300002: "\u5186\u67F1.001"
     4300000: "\u5186\u67F1.000"
     4300002: "\u5186\u67F1.001"
-    10800000: Lamp
-    10800002: Light
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Material.001
-    second: {fileID: 2100000, guid: 0c945a1915adff045b06ce2056bacd0a, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: "\u30DE\u30C6\u30EA\u30A2\u30EB.001"
-    second: {fileID: 2100000, guid: 576954144ca0c4040ab007561e4865c3, type: 2}
+  externalObjects: {}
   materials:
     importMaterials: 1
     materialName: 0
