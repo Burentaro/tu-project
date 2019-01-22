@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 ﻿{"cameraMode":{"drawMode":0,"name":"Shaded","section":"Shading Mode"},"sceneLighting":true,"audioPlay":false,"sceneViewState":{"showFog":true,"showMaterialUpdate":false,"showSkybox":true,"showFlares":true,"showImageEffects":true,"showParticleSystems":true},"in2DMode":false,"pivot":{"x":-10.397283554077149,"y":3.1458563804626467,"z":-4.604511260986328},"rotation":{"x":-0.1898975670337677,"y":-0.40626662969589236,"z":0.08672451227903366,"w":-0.8895871043205261},"size":18.29937171936035,"orthographic":false}
+=======
+﻿{"cameraMode":{"drawMode":0,"name":"Shaded","section":"Shading Mode"},"sceneLighting":true,"audioPlay":false,"sceneViewState":{"showFog":true,"showMaterialUpdate":false,"showSkybox":true,"showFlares":true,"showImageEffects":true,"showParticleSystems":true},"in2DMode":false,"pivot":{"x":2.59375,"y":2.46484375,"z":-0.4345703125},"rotation":{"x":-0.002333081793040037,"y":0.7132261991500855,"z":-0.002347073517739773,"w":-0.7009262442588806},"size":20.75909423828125,"orthographic":true}
+>>>>>>> parent of add9eaa... no message

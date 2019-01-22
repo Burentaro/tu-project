@@ -27,6 +27,7 @@ ModelImporter:
     3300002: "\u5186\u67F1.001"
     4300000: "\u5186\u67F1.000"
     4300002: "\u5186\u67F1.001"
+<<<<<<< HEAD:TUBaseProject01/Assets/Resources/3DModels/updated_cannon.fbx.meta
     10800000: Lamp
     10800002: Light
   externalObjects:
@@ -40,6 +41,10 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: "\u30DE\u30C6\u30EA\u30A2\u30EB.001"
     second: {fileID: 2100000, guid: 576954144ca0c4040ab007561e4865c3, type: 2}
+=======
+    9500000: //RootNode
+  externalObjects: {}
+>>>>>>> parent of add9eaa... no message:TUBaseProject01/Assets/updated_cannon.fbx.meta
   materials:
     importMaterials: 1
     materialName: 0
