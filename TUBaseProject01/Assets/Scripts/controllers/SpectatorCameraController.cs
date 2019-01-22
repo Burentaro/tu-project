@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NewBehaviourScript : MonoBehaviour {
+public class SpectatorCameraController : MonoBehaviour {
 	public bool active = true;
 	public float speed = 20;
 
