@@ -38,19 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-<<<<<<< HEAD
   m_IndirectSpecularColor: {r: 0.45077246, g: 0.5007102, b: 0.5747714, a: 1}
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.574817, a: 1}
-=======
-  m_IndirectSpecularColor: {r: 0.45077246, g: 0.5007102, b: 0.5747714, a: 1}
->>>>>>> 3f40e53db4f6b204159f6fb77f00d1fcf3f629d9
-=======
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
->>>>>>> parent of 31a3c55... no message
->>>>>>> parent of add9eaa... no message
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -215,10 +203,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> parent of add9eaa... no message
   m_LocalEulerAnglesHint: {x: 0, y: 91.086006, z: 0}
 --- !u!114 &84197649
 MonoBehaviour:
@@ -382,13 +366,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a24dd0ae303a5d0468a100b4cea329cc, type: 3}
-<<<<<<< HEAD
-=======
->>>>>>> 3f40e53db4f6b204159f6fb77f00d1fcf3f629d9
-=======
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
->>>>>>> parent of 31a3c55... no message
->>>>>>> parent of add9eaa... no message
 --- !u!1 &2060203841
 GameObject:
   m_ObjectHideFlags: 0
