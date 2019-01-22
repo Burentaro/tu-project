@@ -27,21 +27,11 @@ public class NewBehaviourScript : MonoBehaviour {
 				movementActivated = false;
 			}
 
-			// Lateral Movement
-			if(Input.GetButtonDown(KeyCode.D)){
-				rightAxis = 1;
-			}
-			if (Input.GetButtonDown (KeyCode.A)) {
-				rightAxis = -1;
-			}
+            // Lateral Movement
+            rightAxis = Input.GetAxis("Horizontal");
 
-			// Frontal movement
-			if (Input.GetButtonDown (KeyCode.W)) {
-				forwardAxis = 1;
-			}
-			if (Input.GetButtonDown (KeyCode.S)) {
-				forwardAxis = -1;
-			}
+            // Frontal movement
+            forwardAxis = Input.GetAxis("Vertical");
 
 			// Move
 			if (movementActivated) {
