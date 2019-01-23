@@ -7,6 +7,7 @@ public class CannonController : MonoBehaviour
     public float MAX_Powder = 1000;
 
     private Transform cannonTransform;
+    private Rigidbody cannonBallPrefab;
     private float cannonAngle = 0;
     private float powder = 0;
 
@@ -71,4 +72,36 @@ public class CannonController : MonoBehaviour
     {
         return powder;
     }
+
+    public bool loadCannonball(Rigidbody newCannonball)
+    {
+        if(cannonBallPrefab != null)
+        {
+            return false;
+        }
+        cannonBallPrefab = newCannonball;
+        return true;
+    }
+
+    public bool isCannonballLoaded()
+    {
+        return cannonBallPrefab != null;
+    }
+
+    public bool shoot()
+    {
+        if(cannonBallPrefab == null || powder == 0)
+        {
+            return false;
+        }
+        Rigidbody rocketInstance;
+        rocketInstance = Instantiate(cannonBallPrefab, cannonTransform.position, cannonTransform.rotation);
+        rocketInstance.AddForce(cannonTransform.forward * (powder * 3));//TODO: Replace for the calculation of powder vs power
+
+        cannonBallPrefab = null;
+        powder = 0;
+
+        return true;
+    }
+
 }

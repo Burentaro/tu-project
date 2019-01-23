@@ -63,6 +63,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\CannonballSpawner.cs" />
     <Compile Include="Assets\Scripts\controllers\CannonController.cs" />
+    <Compile Include="Assets\Scripts\controllers\SimplifyMenuController.cs" />
     <Compile Include="Assets\Scripts\controllers\SpectatorCameraController.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>D:/Papa/Trabajo/ASA Digital/Unity/tu-project/TUBaseProject01/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
