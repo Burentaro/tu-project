@@ -54,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\CannonballSpawner.cs" />
+     <Compile Include="Assets\Scripts\controllers\CannonController.cs" />
      <Compile Include="Assets\Scripts\controllers\SpectatorCameraController.cs" />
      <Compile Include="Assets\Scripts\Dispenser.cs" />
      <Compile Include="Assets\SteamVR\Extras\SteamVR_GazeTracker.cs" />
