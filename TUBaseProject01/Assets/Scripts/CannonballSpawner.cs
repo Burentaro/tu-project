@@ -6,6 +6,7 @@ public class CannonballSpawner : MonoBehaviour
 {
 	public Rigidbody cannonBallPrefab;
 	public Transform barrelEnd;
+	public int power;
 
     // Start is called before the first frame update
     void Start()
@@ -20,7 +21,7 @@ public class CannonballSpawner : MonoBehaviour
         {
         	Rigidbody rocketInstance;
         	rocketInstance = Instantiate(cannonBallPrefab, barrelEnd.position, barrelEnd.rotation);
-        	rocketInstance.AddForce(barrelEnd.forward * 5000);
+        	rocketInstance.AddForce(barrelEnd.forward * power);
         }
     }
 }
