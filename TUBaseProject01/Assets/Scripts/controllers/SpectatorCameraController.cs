@@ -7,7 +7,7 @@ public class SpectatorCameraController : MonoBehaviour {
 	public float speed = 0.5f;
     public float rotationSpeed = 2;
 
-	public Transform objectsTransform;
+	private Transform objectsTransform;
 	private bool movementActivated = false;
 	private float rightAxis = 0, forwardAxis = 0, upAxis = 0, yaw = 0, pitch = 0;
 
