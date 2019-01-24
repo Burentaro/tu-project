@@ -40,13 +40,17 @@ public class SpectatorCameraController : MonoBehaviour {
             upAxis = Input.GetAxis("UpDown");
 
             // Mouse vertical
-            pitch = rotationSpeed * Input.GetAxis("Mouse Y");
+  //          pitch = rotationSpeed * Input.GetAxis("Mouse Y");
 
             // Mouse horizontal
-            yaw = rotationSpeed * Input.GetAxis("Mouse X");
+//            yaw = rotationSpeed * Input.GetAxis("Mouse X");
 
-			// Move
-			if (movementActivated) {
+            yaw += rotationSpeed * Input.GetAxis("Mouse X");
+            pitch -= rotationSpeed * Input.GetAxis("Mouse Y");
+
+
+            // Move
+            if (movementActivated) {
 				move ();
 			}
 		}
@@ -54,14 +58,6 @@ public class SpectatorCameraController : MonoBehaviour {
 
 	private void move(){
         objectsTransform.Translate(new Vector3(speed * rightAxis, speed * upAxis, speed * forwardAxis));
-        if (pitch > yaw)
-        {
-            objectsTransform.Rotate(-pitch, 0, 0);
-        }
-        else
-        {
-            objectsTransform.Rotate(0, yaw, 0);
-        }
-        
+        transform.eulerAngles = new Vector3(pitch, yaw, 0);
     }
 }
