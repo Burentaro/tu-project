@@ -88,9 +88,10 @@ GameObject:
   - component: {fileID: 824688249396913068}
   - component: {fileID: 4517944949997354504}
   - component: {fileID: 3973736923893184870}
+  - component: {fileID: 1435847685590608364}
   m_Layer: 0
   m_Name: LowerButton
-  m_TagString: Untagged
+  m_TagString: button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -154,6 +155,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &1435847685590608364
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1876288517521759388}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.0010524284, y: 0.00020941668, z: 0.0010524273}
+  m_Center: {x: 0.000000014901161, y: -3.2260044e-23, z: -0.000000001513399}
 --- !u!1 &1922382757587578189
 GameObject:
   m_ObjectHideFlags: 0
@@ -165,9 +179,10 @@ GameObject:
   - component: {fileID: 6308505752771795344}
   - component: {fileID: 2181310730648365453}
   - component: {fileID: 6356281678539762189}
+  - component: {fileID: 8759506964518407042}
   m_Layer: 0
   m_Name: Middle Button
-  m_TagString: Untagged
+  m_TagString: button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -231,6 +246,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &8759506964518407042
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1922382757587578189}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.0010524284, y: 0.00020941667, z: 0.0010524285}
+  m_Center: {x: 0.000000014901161, y: -3.637979e-12, z: -0.0000000018044372}
 --- !u!1 &2874089091079197018
 GameObject:
   m_ObjectHideFlags: 0
@@ -319,9 +347,10 @@ GameObject:
   - component: {fileID: 1983203500748894124}
   - component: {fileID: 3486693183979311053}
   - component: {fileID: 784783556368895235}
+  - component: {fileID: 9005922174399302370}
   m_Layer: 0
   m_Name: Top Button
-  m_TagString: Untagged
+  m_TagString: button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -385,6 +414,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &9005922174399302370
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5137639396077437418}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.0010524284, y: 0.00020941668, z: 0.001052428}
+  m_Center: {x: 0.000000014901161, y: 0, z: -0.0000000018626451}
 --- !u!1 &5459253107887375514
 GameObject:
   m_ObjectHideFlags: 0
