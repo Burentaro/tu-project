@@ -1,3 +1,8 @@
+Corridor/Library/ShaderCache/
+Corridor/Library/metadata/
+TUBaseProject01/Library/
+TUBaseProject01/.vs/
+TUBaseProject01/Library/
 # =============== #
 # Unity generated #
 # =============== #
@@ -41,8 +46,3 @@ Icon?
 ehthumbs.db
 [Tt]humbs.db
 [Dd]esktop.ini
-Corridor/Library/ShaderCache/
-Corridor/Library/metadata/
-TUBaseProject01/Library/
-TUBaseProject01/.vs/
-TUBaseProject01/Library/
