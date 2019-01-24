@@ -53,6 +53,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Resources\Materials\Thilo&apos;s Test Tunnel\buttonTrigger.cs" />
      <Compile Include="Assets\Scripts\CannonballSpawner.cs" />
      <Compile Include="Assets\Scripts\controllers\CannonController.cs" />
      <Compile Include="Assets\Scripts\controllers\SimplifyMenuController.cs" />

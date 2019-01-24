@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - cannonBody
+  - projectile
+  - FxTemporaire
+  - button
   layers:
   - Default
   - TransparentFX
