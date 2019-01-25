@@ -21,11 +21,14 @@ public class ButtonTrigger : MonoBehaviour {
 
     void OnTriggerEnter(Collider other)
     {
+        Debug.Log("OnTriggerEnter: ButtonTrigger -1 : " + gameObject.name);
         if (other.tag == "Button")
         {
+            Debug.Log("OnTriggerEnter: ButtonTrigger -2: " + gameObject.name);
             Transform t = Instantiate(boxPrefab);
 
             t.position = spawnPoint.position;
+            Debug.Log("OnTriggerEnter: ButtonTrigger -3: " + gameObject.name);
         }
     }
 }

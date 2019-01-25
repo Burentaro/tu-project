@@ -7,7 +7,7 @@ TagManager:
   - cannonBody
   - projectile
   - FxTemporaire
-  - button
+  - Button
   layers:
   - Default
   - TransparentFX
