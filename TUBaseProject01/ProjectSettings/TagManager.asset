@@ -8,6 +8,9 @@ TagManager:
   - projectile
   - FxTemporaire
   - Button
+  - button
+  - Ammo
+  - Powder
   layers:
   - Default
   - TransparentFX

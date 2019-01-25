@@ -8,7 +8,7 @@ public class CannonController : MonoBehaviour
     public float minAngle = 0.0f;
     public float maxAngle = 25.0f;
     public float maxPowderLoad = 1000.0f;
-    public Transform cannonTransform;
+    public Transform cannonBarrel;
 
     [SerializeField]
     private string loadedCannonBall;
@@ -26,7 +26,7 @@ public class CannonController : MonoBehaviour
         set { isCannonLoaded = value; }
         get
         {
-            return string.IsNullOrEmpty(loadedCannonBall);
+            return !string.IsNullOrEmpty(loadedCannonBall);
         }
     }
 
@@ -46,18 +46,6 @@ public class CannonController : MonoBehaviour
         }
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        //for(int i=0; i < this.gameObject.transform.childCount; i++)
-        //{
-        //    if (this.gameObject.transform.GetChild(i).tag.Equals("cannonBody"))
-        //    {
-        //        cannonTransform = this.gameObject.transform.GetChild(i);
-        //    }
-        //}
-    }
-
     // We set up the angle of the cannon between 0 and under 90
     public bool SetCannonAngle(float newAngle)
     {
@@ -69,7 +57,7 @@ public class CannonController : MonoBehaviour
         if(newAngle < maxAngle)
         {
             cannonAngle = newAngle;
-            cannonTransform.rotation = Quaternion.Euler(-cannonAngle, 0, 0);
+            cannonBarrel.rotation = Quaternion.Euler(-cannonAngle, 0, 0);
             return true;
         }
 
@@ -118,12 +106,6 @@ public class CannonController : MonoBehaviour
         return true;
     }
 
-    //public bool IsCannonLoaded()
-    //{
-    //    return IsCannonBallLoaded;
-    //    //return loadedCannonBall != null && !loadedCannonBall.Equals("");
-    //}
-
     public bool Shoot()
     {
         if(!IsCannonBallLoaded || !IsPowderLoaded)
@@ -132,11 +114,10 @@ public class CannonController : MonoBehaviour
         }
 
         // Create a cannonball to be fired of the same resource that was laoded
-        GameObject cannonBall = Instantiate(Resources.Load<GameObject>(loadedCannonBall), cannonTransform.position, cannonTransform.rotation);
-        //cannonBall.GetComponent<CannonballBehaviour>().isActive = true;
+        GameObject cannonBall = Instantiate(Resources.Load<GameObject>(loadedCannonBall), cannonBarrel.position, cannonBarrel.rotation);
 
         // Add a force to the cannonball to propel it towards it's target
-        cannonBall.GetComponent<Rigidbody>().AddForce(cannonTransform.forward * (powder * 3));
+        cannonBall.GetComponent<Rigidbody>().AddForce(cannonBarrel.forward * (powder * 3));
 
         // Clean the cannon to prepare it for the next round
         CleanCannon();

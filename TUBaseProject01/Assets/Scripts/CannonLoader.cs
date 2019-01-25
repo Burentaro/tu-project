@@ -4,7 +4,6 @@ using System.Collections;
 public class CannonLoader : MonoBehaviour
 {
     public CannonController cannonController;
-    public Actor.ActorType typeToLoad = Actor.ActorType.NONE;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -13,7 +12,7 @@ public class CannonLoader : MonoBehaviour
 
         if (actor != null)
         {
-            if (typeToLoad == Actor.ActorType.AMMO)
+            if (actor.gameObject.tag == "Ammo" && gameObject.tag == "Ammo")
             {
                 // Check to see if the cannon is already loaded so that you don't override the current load
                 if (cannonController.IsCannonBallLoaded)
@@ -28,7 +27,7 @@ public class CannonLoader : MonoBehaviour
                 // Desctory the object as it's no longer needed
                 actor.DestroyObject(0);
             }
-            else if (typeToLoad == Actor.ActorType.POWDER)
+            else if (actor.gameObject.tag == "Powder" && gameObject.tag == "Powder")
             {
                 // Add the powder to the cannon
                 cannonController.AddPowder(actor.weight);

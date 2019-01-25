@@ -48,7 +48,7 @@ MonoBehaviour:
   minAngle: 0
   maxAngle: 25
   maxPowderLoad: 1000
-  cannonTransform: {fileID: 8262402640852409771}
+  cannonBarrel: {fileID: 8262402640852409771}
   loadedCannonBall: 
   cannonAngle: 0
   powder: 0
@@ -67,7 +67,7 @@ GameObject:
   - component: {fileID: 1928203853863054500}
   m_Layer: 0
   m_Name: CannonRotation
-  m_TagString: cannonBody
+  m_TagString: Ammo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -113,7 +113,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cannonController: {fileID: 7923526880635405125}
-  typeToLoad: 1
 --- !u!1001 &8262402639773270649
 PrefabInstance:
   m_ObjectHideFlags: 0
