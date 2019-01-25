@@ -120,7 +120,11 @@ GameObject:
   - component: {fileID: 7181841580958056290}
   - component: {fileID: 7050769328273800281}
   - component: {fileID: 1996892806693368322}
+<<<<<<< HEAD
   - component: {fileID: 6339303092750366911}
+=======
+  - component: {fileID: 6764542173899797111}
+>>>>>>> master
   m_Layer: 0
   m_Name: Top Button Front
   m_TagString: Untagged
@@ -226,7 +230,11 @@ SpringJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
+<<<<<<< HEAD
 --- !u!65 &6339303092750366911
+=======
+--- !u!65 &6764542173899797111
+>>>>>>> master
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -368,7 +376,11 @@ GameObject:
   - component: {fileID: 1794750673945652945}
   - component: {fileID: 722501905409451873}
   - component: {fileID: 5605085260090884411}
+<<<<<<< HEAD
   - component: {fileID: 4341589005658928926}
+=======
+  - component: {fileID: 2427406803785197700}
+>>>>>>> master
   m_Layer: 0
   m_Name: Middle Button
   m_TagString: Untagged
@@ -474,7 +486,11 @@ SpringJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
+<<<<<<< HEAD
 --- !u!65 &4341589005658928926
+=======
+--- !u!65 &2427406803785197700
+>>>>>>> master
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -838,7 +854,11 @@ GameObject:
   - component: {fileID: 6458777517476487859}
   - component: {fileID: 459820210834694378}
   - component: {fileID: 9222102867299937773}
+<<<<<<< HEAD
   - component: {fileID: 2496974538789005243}
+=======
+  - component: {fileID: 4579352823885280745}
+>>>>>>> master
   m_Layer: 0
   m_Name: Lower Button
   m_TagString: Untagged
@@ -944,7 +964,11 @@ SpringJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
+<<<<<<< HEAD
 --- !u!65 &2496974538789005243
+=======
+--- !u!65 &4579352823885280745
+>>>>>>> master
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
