@@ -120,6 +120,7 @@ GameObject:
   - component: {fileID: 7181841580958056290}
   - component: {fileID: 7050769328273800281}
   - component: {fileID: 1996892806693368322}
+  - component: {fileID: 6764542173899797111}
   m_Layer: 0
   m_Name: Top Button
   m_TagString: Untagged
@@ -225,6 +226,19 @@ SpringJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!65 &6764542173899797111
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2307320275353642778}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.026996905, y: 0.050000012, z: 0.050000004}
+  m_Center: {x: 0.0034984516, y: 0.0007411205, z: -0.00025156685}
 --- !u!1 &2342059960274188609
 GameObject:
   m_ObjectHideFlags: 0
@@ -352,6 +366,7 @@ GameObject:
   - component: {fileID: 1794750673945652945}
   - component: {fileID: 722501905409451873}
   - component: {fileID: 5605085260090884411}
+  - component: {fileID: 2427406803785197700}
   m_Layer: 0
   m_Name: Middle Button
   m_TagString: Untagged
@@ -457,6 +472,19 @@ SpringJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!65 &2427406803785197700
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3247680575201096054}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.026996905, y: 0.050000012, z: 0.050000004}
+  m_Center: {x: 0.0034984516, y: 0.0007411205, z: -0.00025162645}
 --- !u!1 &4129153945650384612
 GameObject:
   m_ObjectHideFlags: 0
@@ -778,6 +806,7 @@ GameObject:
   - component: {fileID: 6458777517476487859}
   - component: {fileID: 459820210834694378}
   - component: {fileID: 9222102867299937773}
+  - component: {fileID: 4579352823885280745}
   m_Layer: 0
   m_Name: Lower Button
   m_TagString: Untagged
@@ -883,3 +912,16 @@ SpringJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!65 &4579352823885280745
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9022215619828667753}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.026996905, y: 0.050000012, z: 0.050000004}
+  m_Center: {x: 0.0034984516, y: 0.0007411205, z: -0.00025162645}
