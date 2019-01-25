@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 58252830}
   - component: {fileID: 58252829}
   m_Layer: 0
-  m_Name: Top Button Front
+  m_Name: Button Front
   m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -218,6 +218,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 196313317}
+  - component: {fileID: 9175250915381463631}
   m_Layer: 0
   m_Name: dispenserV3
   m_TagString: Untagged
@@ -246,6 +247,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &9175250915381463631
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 196313316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be468a96b699e914b911e58106953cab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventoryItems:
+  - {fileID: 3887230068954533625, guid: 82691b288098e824089ef051f705cdcc, type: 3}
+  - {fileID: 7757627221155369820, guid: ce164bbfce0797f44ab45e25533b0ec7, type: 3}
+  - {fileID: 3708879275703634289, guid: c237ba9ad5a5a3e4d9b9343240f9acf8, type: 3}
+  isDispensing: 0
+  spawnPoint: {fileID: 742924300}
 --- !u!1 &218530693
 GameObject:
   m_ObjectHideFlags: 0
@@ -336,7 +355,7 @@ GameObject:
   - component: {fileID: 462169868}
   - component: {fileID: 462169867}
   m_Layer: 0
-  m_Name: Top Button Back
+  m_Name: Button Back
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -397,9 +416,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a48c52e795801e04dbde0a6b57838818, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boxPrefab: {fileID: 773740699198902043, guid: 82691b288098e824089ef051f705cdcc,
-    type: 3}
-  spawnPoint: {fileID: 742924300}
+  buttonTag: Button
+  onButtonTriggered:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7162910098662920472}
+        m_MethodName: OnButtonTriggered
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1 &742924299
 GameObject:
   m_ObjectHideFlags: 0
@@ -516,6 +549,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2101252724}
+  - component: {fileID: 7162910098662920472}
   m_Layer: 0
   m_Name: TopButton
   m_TagString: Untagged
@@ -539,6 +573,35 @@ Transform:
   m_Father: {fileID: 196313317}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7162910098662920472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2101252723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 117a8b89aff20d342b94ad80a620d87d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventoryId: 0
+  onDispenserButtonPressed:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 9175250915381463631}
+        m_MethodName: OnDispenserButtonPressed
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: DispenserButtonEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!1 &916012425359608533
 GameObject:
   m_ObjectHideFlags: 0
@@ -554,7 +617,7 @@ GameObject:
   - component: {fileID: 6799814129941138865}
   - component: {fileID: 3151327646293293061}
   m_Layer: 0
-  m_Name: Top Button Front
+  m_Name: Button Front
   m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -680,6 +743,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2454852200975869608}
+  - component: {fileID: 8137168002872843387}
   m_Layer: 0
   m_Name: MiddleButton
   m_TagString: Untagged
@@ -703,6 +767,35 @@ Transform:
   m_Father: {fileID: 196313317}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8137168002872843387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3225957484713833828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 117a8b89aff20d342b94ad80a620d87d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventoryId: 1
+  onDispenserButtonPressed:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 9175250915381463631}
+        m_MethodName: OnDispenserButtonPressed
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: DispenserButtonEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!1 &5416257313695827745
 GameObject:
   m_ObjectHideFlags: 0
@@ -718,7 +811,7 @@ GameObject:
   - component: {fileID: 742093051152092799}
   - component: {fileID: 960812309829622025}
   m_Layer: 0
-  m_Name: Top Button Front
+  m_Name: Button Front
   m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -844,6 +937,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 646941775794094564}
+  - component: {fileID: 3581633800365961891}
   m_Layer: 0
   m_Name: LowerButton
   m_TagString: Untagged
@@ -867,6 +961,35 @@ Transform:
   m_Father: {fileID: 196313317}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3581633800365961891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7149194926585255807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 117a8b89aff20d342b94ad80a620d87d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventoryId: 2
+  onDispenserButtonPressed:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 9175250915381463631}
+        m_MethodName: OnDispenserButtonPressed
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: DispenserButtonEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!1 &7971276492682216742
 GameObject:
   m_ObjectHideFlags: 0
@@ -880,7 +1003,7 @@ GameObject:
   - component: {fileID: 6002512334517089069}
   - component: {fileID: 5501543947300115874}
   m_Layer: 0
-  m_Name: Top Button Back
+  m_Name: Button Back
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -941,9 +1064,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a48c52e795801e04dbde0a6b57838818, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boxPrefab: {fileID: 773740699198902043, guid: 82691b288098e824089ef051f705cdcc,
-    type: 3}
-  spawnPoint: {fileID: 742924300}
+  buttonTag: Button
+  onButtonTriggered:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3581633800365961891}
+        m_MethodName: OnButtonTriggered
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1 &8077012720431899824
 GameObject:
   m_ObjectHideFlags: 0
@@ -957,7 +1094,7 @@ GameObject:
   - component: {fileID: 1874523504405258067}
   - component: {fileID: 3415160585622315203}
   m_Layer: 0
-  m_Name: Top Button Back
+  m_Name: Button Back
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1018,6 +1155,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a48c52e795801e04dbde0a6b57838818, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boxPrefab: {fileID: 8943284145107446776, guid: ce164bbfce0797f44ab45e25533b0ec7,
-    type: 3}
-  spawnPoint: {fileID: 742924300}
+  buttonTag: Button
+  onButtonTriggered:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8137168002872843387}
+        m_MethodName: OnButtonTriggered
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
