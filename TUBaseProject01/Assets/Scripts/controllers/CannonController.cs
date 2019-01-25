@@ -1,13 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 
 public class CannonController : MonoBehaviour
 {
     public float MAX_Powder = 1000;
 
     private Transform cannonTransform;
-    private Rigidbody cannonBallPrefab;
+    private string cannonBallType;
     private float cannonAngle = 0;
     private float powder = 0;
 
@@ -73,32 +74,32 @@ public class CannonController : MonoBehaviour
         return powder;
     }
 
-    public bool loadCannonball(Rigidbody newCannonball)
+    public bool loadCannonball(string newCannonball)
     {
-        if(cannonBallPrefab != null)
+        if(cannonBallType != null && !cannonBallType.Equals(""))
         {
             return false;
         }
-        cannonBallPrefab = newCannonball;
+        cannonBallType = newCannonball;
         return true;
     }
 
     public bool isCannonballLoaded()
     {
-        return cannonBallPrefab != null;
+        return cannonBallType != null && !cannonBallType.Equals("");
     }
 
     public bool shoot()
     {
-        if(cannonBallPrefab == null || powder == 0)
+        if(cannonBallType == null || cannonBallType.Equals("") || powder == 0)
         {
             return false;
         }
-        Rigidbody rocketInstance;
-        rocketInstance = Instantiate(cannonBallPrefab, cannonTransform.position, cannonTransform.rotation);
-        rocketInstance.AddForce(cannonTransform.forward * (powder * 3));//TODO: Replace for the calculation of powder vs power
+        GameObject cannonBall = (GameObject)Instantiate(Resources.Load(cannonBallType), cannonTransform.position, cannonTransform.rotation);
+        cannonBall.GetComponent<CannonballBehaviour>().active = true;
+        cannonBall.GetComponent<Rigidbody>().AddForce(cannonTransform.forward * (powder * 3));
 
-        cannonBallPrefab = null;
+        cannonBallType = null;
         powder = 0;
 
         return true;
