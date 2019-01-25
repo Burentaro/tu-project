@@ -262,7 +262,7 @@ MonoBehaviour:
   inventoryItems:
   - {fileID: 3887230068954533625, guid: 82691b288098e824089ef051f705cdcc, type: 3}
   - {fileID: 7757627221155369820, guid: ce164bbfce0797f44ab45e25533b0ec7, type: 3}
-  - {fileID: 3708879275703634289, guid: c237ba9ad5a5a3e4d9b9343240f9acf8, type: 3}
+  - {fileID: 3549535167112968958, guid: f86f641f725b8d44ba01a0bc071db5c1, type: 3}
   isDispensing: 0
   spawnPoint: {fileID: 742924300}
 --- !u!1 &218530693
