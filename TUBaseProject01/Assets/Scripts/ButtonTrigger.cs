@@ -1,34 +1,22 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.Events;
 
 public class ButtonTrigger : MonoBehaviour {
 
-    [SerializeField]
-    private Transform boxPrefab;
-    [SerializeField]
-    private Transform spawnPoint;
-
-    // Use this for initialization
-    void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    public string buttonTag = "Button";     // tag used to filter out only the objects that we want
+    public UnityEvent onButtonTriggered;    // UnityEvent to notify listeners when the button was triggered
 
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log("OnTriggerEnter: ButtonTrigger -1 : " + gameObject.name);
-        if (other.tag == "Button")
+        // Check that the object collided with is a button
+        if (other.tag == buttonTag)
         {
-            Debug.Log("OnTriggerEnter: ButtonTrigger -2: " + gameObject.name);
-            Transform t = Instantiate(boxPrefab);
-
-            t.position = spawnPoint.position;
-            Debug.Log("OnTriggerEnter: ButtonTrigger -3: " + gameObject.name);
+            // Check that the UnityEnvent is not null to avoid a null exception
+            if (onButtonTriggered != null)
+            {
+                // Let all listeners know that the button has been triggered
+                onButtonTriggered.Invoke();
+            }
         }
     }
 }
