@@ -26,7 +26,7 @@ public class CannonController : MonoBehaviour
         set { isCannonLoaded = value; }
         get
         {
-            return !string.IsNullOrEmpty(loadedCannonBall);
+            return isCannonLoaded;
         }
     }
 
@@ -37,9 +37,9 @@ public class CannonController : MonoBehaviour
         {
             if (powder > 0)
             {
-                return false;
+                return true;
             }
-            else;
+            else
             {
                 return false;
             }
@@ -106,15 +106,20 @@ public class CannonController : MonoBehaviour
         return true;
     }
 
-    public bool Shoot()
+    public void Shoot()
     {
         if(!IsCannonBallLoaded || !IsPowderLoaded)
         {
-            return false;
+            return;
         }
+
+        IsCannonBallLoaded = false;
 
         // Create a cannonball to be fired of the same resource that was laoded
         GameObject cannonBall = Instantiate(Resources.Load<GameObject>(loadedCannonBall), cannonBarrel.position, cannonBarrel.rotation);
+
+        // Change tag to prevent being reloaded when fired
+        cannonBall.tag = "projectile";
 
         // Add a force to the cannonball to propel it towards it's target
         cannonBall.GetComponent<Rigidbody>().AddForce(cannonBarrel.forward * (powder * 3));
@@ -122,7 +127,7 @@ public class CannonController : MonoBehaviour
         // Clean the cannon to prepare it for the next round
         CleanCannon();
 
-        return true;
+        return;
     }
 
     private void CleanCannon()
@@ -130,7 +135,7 @@ public class CannonController : MonoBehaviour
         // Clear the cannonball
         loadedCannonBall = string.Empty;
         loadedCannonBall = null;
-
+        
         // Clear the powder
         powder = 0;
     }

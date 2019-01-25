@@ -802,6 +802,16 @@ PrefabInstance:
       propertyPath: MAX_Powder
       value: 5000
       objectReference: {fileID: 0}
+    - target: {fileID: 6276839252728502628, guid: 6d50990eba04446428d1420adb350d17,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 0.5747236
+      objectReference: {fileID: 0}
+    - target: {fileID: 6276839252728502628, guid: 6d50990eba04446428d1420adb350d17,
+        type: 3}
+      propertyPath: m_Center.z
+      value: 1.5984159
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6d50990eba04446428d1420adb350d17, type: 3}
 --- !u!1 &752070029
@@ -1052,7 +1062,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 862108007}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 090de825d8548d944b1fea5803a45352, type: 3}
   m_Name: 
@@ -1150,7 +1160,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1019117312}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 936994177}
+        m_MethodName: Shoot
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1019117312
