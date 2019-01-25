@@ -55,6 +55,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8262402640852409771}
+  - component: {fileID: 6276839252728502628}
   m_Layer: 0
   m_Name: CannonRotation
   m_TagString: cannonBody
@@ -77,6 +78,19 @@ Transform:
   m_Father: {fileID: 8262402640337534565}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &6276839252728502628
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8262402640852409768}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.67869675, y: 0.616908, z: 0.6512501}
+  m_Center: {x: 0, y: 0.012357801, z: 1.4183749}
 --- !u!1001 &8262402639773270649
 PrefabInstance:
   m_ObjectHideFlags: 0
