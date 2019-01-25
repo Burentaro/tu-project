@@ -45,7 +45,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a21b9e59e585394f9420df2f4139283, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MAX_Powder: 1000
+  minAngle: 0
+  maxAngle: 25
+  maxPowderLoad: 1000
+  cannonTransform: {fileID: 8262402640852409771}
+  loadedCannonBall: 
+  cannonAngle: 0
+  powder: 0
+  isCannonLoaded: 0
+  isPowderLoaded: 0
 --- !u!1 &8262402640852409768
 GameObject:
   m_ObjectHideFlags: 0
@@ -56,6 +64,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8262402640852409771}
   - component: {fileID: 6276839252728502628}
+  - component: {fileID: 1928203853863054500}
   m_Layer: 0
   m_Name: CannonRotation
   m_TagString: cannonBody
@@ -91,6 +100,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.21090195, y: 0.24890941, z: 0.0462358}
   m_Center: {x: -0.0031186193, y: -0.009472758, z: 1.3341719}
+--- !u!114 &1928203853863054500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8262402640852409768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b5396d4eea588045922d0d0e807c689, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cannonController: {fileID: 7923526880635405125}
+  typeToLoad: 1
 --- !u!1001 &8262402639773270649
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -145,18 +168,6 @@ PrefabInstance:
     - target: {fileID: 400000, guid: c0b83b82de415484ca60481c85577dcc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: c0b83b82de415484ca60481c85577dcc, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: c0b83b82de415484ca60481c85577dcc, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: c0b83b82de415484ca60481c85577dcc, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c0b83b82de415484ca60481c85577dcc, type: 3}
@@ -220,18 +231,6 @@ PrefabInstance:
     - target: {fileID: 400000, guid: 8653545875370db478a2c62eb4b8c7bc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 8653545875370db478a2c62eb4b8c7bc, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 8653545875370db478a2c62eb4b8c7bc, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 8653545875370db478a2c62eb4b8c7bc, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8653545875370db478a2c62eb4b8c7bc, type: 3}

@@ -13,7 +13,7 @@ public class CannonLoader : MonoBehaviour
 
         if (actor != null)
         {
-            if (actor.gameObject.tag == "Ammo" && typeToLoad == Actor.ActorType.AMMO)
+            if (typeToLoad == Actor.ActorType.AMMO)
             {
                 // Check to see if the cannon is already loaded so that you don't override the current load
                 if (cannonController.IsCannonBallLoaded)
@@ -28,7 +28,7 @@ public class CannonLoader : MonoBehaviour
                 // Desctory the object as it's no longer needed
                 actor.DestroyObject(0);
             }
-            else if (actor.gameObject.tag == "Powder" && typeToLoad == Actor.ActorType.POWDER)
+            else if (typeToLoad == Actor.ActorType.POWDER)
             {
                 // Add the powder to the cannon
                 cannonController.AddPowder(actor.weight);

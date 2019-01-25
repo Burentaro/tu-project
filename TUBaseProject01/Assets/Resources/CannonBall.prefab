@@ -124,9 +124,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f6399d88edbc7e4da1dded5f97aabd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  active: 0
-  holdingCopy: {fileID: 3549535167112968958, guid: f86f641f725b8d44ba01a0bc071db5c1,
-    type: 3}
+  type: 1
+  weight: 100
+  isDying: 0
   secondsOfLifeAfterHit: 3
 --- !u!114 &108955396182844058
 MonoBehaviour:
