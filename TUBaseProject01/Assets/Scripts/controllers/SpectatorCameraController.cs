@@ -39,12 +39,6 @@ public class SpectatorCameraController : MonoBehaviour {
             // Up and Down movement
             upAxis = Input.GetAxis("UpDown");
 
-            // Mouse vertical
-  //          pitch = rotationSpeed * Input.GetAxis("Mouse Y");
-
-            // Mouse horizontal
-//            yaw = rotationSpeed * Input.GetAxis("Mouse X");
-
             yaw += rotationSpeed * Input.GetAxis("Mouse X");
             pitch -= rotationSpeed * Input.GetAxis("Mouse Y");
 

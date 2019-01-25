@@ -14,7 +14,7 @@ public class SimplifyMenuController : MonoBehaviour
     public Button fireCannon;
     public Button addAngle;
     public Button restAngle;
-    public Rigidbody cannonBall;
+    public string cannonBall;
 
     private float angleIncrement = 2;
 
