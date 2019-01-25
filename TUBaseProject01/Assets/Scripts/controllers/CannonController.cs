@@ -5,40 +5,68 @@ using UnityEditor;
 
 public class CannonController : MonoBehaviour
 {
-    public float MAX_Powder = 1000;
+    public float minAngle = 0.0f;
+    public float maxAngle = 25.0f;
+    public float maxPowderLoad = 1000.0f;
+    public Transform cannonTransform;
 
-    private Transform cannonTransform;
-    private string cannonBallType;
+    [SerializeField]
+    private string loadedCannonBall;
+    [SerializeField]
     private float cannonAngle = 0;
+    [SerializeField]
     private float powder = 0;
+    [SerializeField]
+    public bool isCannonLoaded = false;
+    [SerializeField]
+    public bool isPowderLoaded = false;
 
-    // Start is called before the first frame update
-    void Start()
+    public bool IsCannonBallLoaded
     {
-        for(int i=0; i < this.gameObject.transform.childCount; i++)
+        set { isCannonLoaded = value; }
+        get
         {
-            if (this.gameObject.transform.GetChild(i).tag.Equals("cannonBody"))
+            return string.IsNullOrEmpty(loadedCannonBall);
+        }
+    }
+
+    public bool IsPowderLoaded
+    {
+        set { isPowderLoaded = value; }
+        get
+        {
+            if (powder > 0)
             {
-                cannonTransform = this.gameObject.transform.GetChild(i);
+                return false;
+            }
+            else;
+            {
+                return false;
             }
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    // Start is called before the first frame update
+    void Start()
     {
-        
+        //for(int i=0; i < this.gameObject.transform.childCount; i++)
+        //{
+        //    if (this.gameObject.transform.GetChild(i).tag.Equals("cannonBody"))
+        //    {
+        //        cannonTransform = this.gameObject.transform.GetChild(i);
+        //    }
+        //}
     }
 
     // We set up the angle of the cannon between 0 and under 90
-    public bool setCannonAngle(float newAngle)
+    public bool SetCannonAngle(float newAngle)
     {
-        if(newAngle < 0)
+        if(newAngle < minAngle)
         {
             return false;
         }
         
-        if(newAngle < 90)
+        if(newAngle < maxAngle)
         {
             cannonAngle = newAngle;
             cannonTransform.rotation = Quaternion.Euler(-cannonAngle, 0, 0);
@@ -47,62 +75,83 @@ public class CannonController : MonoBehaviour
 
         return false;
     }
-
-    // 
-    public float getCannonAngle()
+    
+    public float GetCannonAngle()
     {
         return cannonAngle;
     }
-
-    // 
-    public float addPowder(float morePowder)
+    
+    public float AddPowder(float morePowder)
     {
         float extraPower = 0;
         powder += morePowder;
-        if(powder > MAX_Powder)
+        if(powder > maxPowderLoad)
         {
-            extraPower = powder - MAX_Powder;
-            powder = MAX_Powder;
+            extraPower = powder - maxPowderLoad;
+            powder = maxPowderLoad;
         }
 
         return extraPower;
     }
-
-    // 
-    public float getPowder()
+    
+    public float GetPowder()
     {
         return powder;
     }
 
-    public bool loadCannonball(string newCannonball)
+    public bool LoadCannonBall(string newCannonBall)
     {
-        if(cannonBallType != null && !cannonBallType.Equals(""))
+        // Check to see if the cannon has already been laoded
+        if(IsCannonBallLoaded)
         {
+            // Load failed
             return false;
         }
-        cannonBallType = newCannonball;
+
+        // Save the name of the cannon ball that was loaded so that it can be loaded from resources
+        loadedCannonBall = newCannonBall;
+
+        // Set the flag so that only one cannonball is loaded
+        IsCannonBallLoaded = true;
+
+        // Load successful
         return true;
     }
 
-    public bool isCannonballLoaded()
-    {
-        return cannonBallType != null && !cannonBallType.Equals("");
-    }
+    //public bool IsCannonLoaded()
+    //{
+    //    return IsCannonBallLoaded;
+    //    //return loadedCannonBall != null && !loadedCannonBall.Equals("");
+    //}
 
-    public bool shoot()
+    public bool Shoot()
     {
-        if(cannonBallType == null || cannonBallType.Equals("") || powder == 0)
+        if(!IsCannonBallLoaded || !IsPowderLoaded)
         {
             return false;
         }
-        GameObject cannonBall = (GameObject)Instantiate(Resources.Load(cannonBallType), cannonTransform.position, cannonTransform.rotation);
-        cannonBall.GetComponent<CannonballBehaviour>().active = true;
+
+        // Create a cannonball to be fired of the same resource that was laoded
+        GameObject cannonBall = Instantiate(Resources.Load<GameObject>(loadedCannonBall), cannonTransform.position, cannonTransform.rotation);
+        //cannonBall.GetComponent<CannonballBehaviour>().isActive = true;
+
+        // Add a force to the cannonball to propel it towards it's target
         cannonBall.GetComponent<Rigidbody>().AddForce(cannonTransform.forward * (powder * 3));
 
-        cannonBallType = null;
-        powder = 0;
+        // Clean the cannon to prepare it for the next round
+        CleanCannon();
 
         return true;
+    }
+
+    private void CleanCannon()
+    {
+        // Clear the cannonball
+        loadedCannonBall = string.Empty;
+        loadedCannonBall = null;
+
+        // Clear the powder
+        powder = 0;
     }
 
 }
