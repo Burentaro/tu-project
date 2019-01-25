@@ -31,7 +31,7 @@ public class SimplifyMenuController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (cannonController.isCannonballLoaded())
+        if (cannonController.IsCannonBallLoaded)
         {
             cannonBallText.text = "Loaded";
         } else
@@ -39,33 +39,33 @@ public class SimplifyMenuController : MonoBehaviour
             cannonBallText.text = "NONE";
         }
 
-        cannonAngleText.text = cannonController.getCannonAngle() + "%";
+        cannonAngleText.text = cannonController.GetCannonAngle() + "%";
 
-        powderText.text = cannonController.getPowder() + " g";
+        powderText.text = cannonController.GetPowder() + " g";
     }
 
     public void loadPowder()
     {
-        cannonController.addPowder(500);
+        cannonController.AddPowder(500);
     }
 
     private void loadCB()
     {
-        cannonController.loadCannonball(cannonBall);
+        cannonController.LoadCannonBall(cannonBall);
     }
 
     private void addAng()
     {
-        cannonController.setCannonAngle(cannonController.getCannonAngle() + angleIncrement);
+        cannonController.SetCannonAngle(cannonController.GetCannonAngle() + angleIncrement);
     }
 
     private void substractAngle()
     {
-        cannonController.setCannonAngle(cannonController.getCannonAngle() - angleIncrement);
+        cannonController.SetCannonAngle(cannonController.GetCannonAngle() - angleIncrement);
     }
 
     private void shoot()
     {
-        cannonController.shoot();
+        cannonController.Shoot();
     }
 }
