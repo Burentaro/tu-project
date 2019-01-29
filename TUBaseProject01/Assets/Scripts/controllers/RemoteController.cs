@@ -1,51 +1,51 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class RemoteController : MonoBehaviour
 {
     public CannonController cannonController;
-    public bool isHeld = false;
 
-    // Start is called before the first frame update
-    private bool fire = false;
-    private float upDownAxis = 0;
-    void Start()
+    [SerializeField]
+    private bool isHeld = false;
+
+    /// TO-DO : Talk about this with Andres. I'm not 100% happy about doing it this way
+    /// From a teaching perspective, it may be better to split into two methods. What do you think?
+    public void HoldRemote()
     {
-        
+        bool oldHoldValue = isHeld;
+        if(oldHoldValue)
+        {
+            isHeld = false;
+        }
+        else
+        {
+            isHeld = true;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Fire()
     {
         if (isHeld)
         {
-            if (Input.GetKeyDown("Fire1"))
-            {
-                fire = true;
-            }
-            if (Input.GetKeyUp("Fire1"))
-            {
-                fire = false;
-            }
-            upDownAxis = Input.GetAxis("UpDown");
+            Debug.Log("RemoteController: Fire");
+            cannonController.Shoot();
         }
     }
 
-    private void actions()
+    public void IncreaseAngle()
     {
-        if (fire)
+        if (isHeld)
         {
-            Debug.Log("Shoot");
-            cannonController.Shoot();
-        }
-        if(upDownAxis < 0)
-        {
-            cannonController.AddCannonAngle(1);
-        }
-        if(upDownAxis > 0)
-        {
+            Debug.Log("RemoteController: IncreaseAngle");
             cannonController.AddCannonAngle(-1);
+        }
+    }
+
+    public void DecreaseAngle()
+    {
+        if (isHeld)
+        {
+            Debug.Log("RemoteController: DecreaseAngle");
+            cannonController.AddCannonAngle(1);
         }
     }
 }
