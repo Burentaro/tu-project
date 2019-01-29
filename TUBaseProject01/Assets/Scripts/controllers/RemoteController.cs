@@ -37,14 +37,15 @@ public class RemoteController : MonoBehaviour
         if (fire)
         {
             Debug.Log("Shoot");
+            cannonController.Shoot();
         }
         if(upDownAxis < 0)
         {
-            Debug.Log("Up?");
+            cannonController.AddCannonAngle(1);
         }
         if(upDownAxis > 0)
         {
-            Debug.Log("Down?");
+            cannonController.AddCannonAngle(-1);
         }
     }
 }

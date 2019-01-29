@@ -12,8 +12,6 @@ public class PowderLoaderEvent : UnityEvent<float>
 
 public class CannonController : MonoBehaviour
 {
-    public float minAngle = 0.0f;
-    public float maxAngle = 25.0f;
     public float maxPowderLoad = 1000.0f;
     public Transform cannonBarrel;
 
@@ -23,10 +21,14 @@ public class CannonController : MonoBehaviour
     private float cannonAngle = 0;
     [SerializeField]
     private float powder = 0;
+
+
     [SerializeField]
     public bool isCannonLoaded = false;
     [SerializeField]
     public bool isPowderLoaded = false;
+    private float minAngle = 0.0f;
+    private float maxAngle = 90.0f;
 
     public bool IsCannonBallLoaded
     {
@@ -37,24 +39,12 @@ public class CannonController : MonoBehaviour
         }
     }
 
-    public bool IsPowderLoaded
+    public bool IsPowderLoaded()
     {
-        set { isPowderLoaded = value; }
-        get
-        {
-            if (powder > 0)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
+        return powder > 0;
     }
 
-    // We set up the angle of the cannon between 0 and under 90
-    public void SetCannonAngle(float angleValue)
+    public void AddCannonAngle(float angleValue)
     {
         // Calculate the new angle
         float newAngle = cannonAngle + angleValue;
@@ -66,28 +56,13 @@ public class CannonController : MonoBehaviour
             cannonAngle = newAngle;
             cannonBarrel.localRotation = Quaternion.Euler(cannonAngle, 0, 0);
         }
-        
-
-        //if(angleValue < minAngle)
-        //{
-        //    return;
-        //}
-        
-        //if(angleValue > maxAngle)
-        //{
-        //    cannonAngle = angleValue;
-        //    cannonBarrel.rotation = Quaternion.Euler(-cannonAngle, 0, 0);
-        //    return;
-        //}
-
-        //return false;
     }
     
     public float GetCannonAngle()
     {
         return cannonAngle;
     }
-    
+
     public void AddPowder(float morePowder)
     {
         float extraPower = 0;
@@ -97,10 +72,6 @@ public class CannonController : MonoBehaviour
             extraPower = powder - maxPowderLoad;
             powder = maxPowderLoad;
         }
-
-        IsPowderLoaded = true;
-
-        //return extraPower;
     }
     
     public float GetPowder()
@@ -129,12 +100,11 @@ public class CannonController : MonoBehaviour
 
     public void Shoot()
     {
-        if(!IsCannonBallLoaded || !IsPowderLoaded)
+        if(!IsCannonBallLoaded || !IsPowderLoaded())
         {
             return;
         }
 
-        IsCannonBallLoaded = false;
 
         // Create a cannonball to be fired of the same resource that was laoded
         GameObject newProjectile = Resources.Load<GameObject>(loadedCannonBall);
@@ -151,8 +121,6 @@ public class CannonController : MonoBehaviour
 
         // Clean the cannon to prepare it for the next round
         CleanCannon();
-
-        return;
     }
 
     private void CleanCannon()
@@ -160,10 +128,10 @@ public class CannonController : MonoBehaviour
         // Clear the cannonball
         loadedCannonBall = string.Empty;
         loadedCannonBall = null;
-        
+        IsCannonBallLoaded = false;
+
         // Clear the powder
         powder = 0;
-        IsPowderLoaded = false;
     }
 
 }

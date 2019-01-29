@@ -56,12 +56,12 @@ public class SimplifyMenuController : MonoBehaviour
 
     private void addAng()
     {
-        cannonController.SetCannonAngle(cannonController.GetCannonAngle() + angleIncrement);
+        cannonController.AddCannonAngle(cannonController.GetCannonAngle() + angleIncrement);
     }
 
     private void substractAngle()
     {
-        cannonController.SetCannonAngle(cannonController.GetCannonAngle() - angleIncrement);
+        cannonController.AddCannonAngle(cannonController.GetCannonAngle() - angleIncrement);
     }
 
     private void shoot()
