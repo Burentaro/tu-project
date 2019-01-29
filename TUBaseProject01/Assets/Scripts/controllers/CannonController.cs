@@ -2,6 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
+using UnityEngine.Events;
+
+[System.Serializable]
+public class PowderLoaderEvent : UnityEvent<float>
+{
+
+}
 
 public class CannonController : MonoBehaviour
 {
@@ -47,21 +54,33 @@ public class CannonController : MonoBehaviour
     }
 
     // We set up the angle of the cannon between 0 and under 90
-    public bool SetCannonAngle(float newAngle)
+    public void SetCannonAngle(float angleValue)
     {
-        if(newAngle < minAngle)
+        // Calculate the new angle
+        float newAngle = cannonAngle + angleValue;
+        
+        // Check that the new angle is within the min max bounds
+        if(newAngle >= minAngle && newAngle <= maxAngle)
         {
-            return false;
+            // Set the new angle
+            cannonAngle = newAngle;
+            cannonBarrel.localRotation = Quaternion.Euler(cannonAngle, 0, 0);
         }
         
-        if(newAngle < maxAngle)
-        {
-            cannonAngle = newAngle;
-            cannonBarrel.rotation = Quaternion.Euler(-cannonAngle, 0, 0);
-            return true;
-        }
 
-        return false;
+        //if(angleValue < minAngle)
+        //{
+        //    return;
+        //}
+        
+        //if(angleValue > maxAngle)
+        //{
+        //    cannonAngle = angleValue;
+        //    cannonBarrel.rotation = Quaternion.Euler(-cannonAngle, 0, 0);
+        //    return;
+        //}
+
+        //return false;
     }
     
     public float GetCannonAngle()
@@ -69,7 +88,7 @@ public class CannonController : MonoBehaviour
         return cannonAngle;
     }
     
-    public float AddPowder(float morePowder)
+    public void AddPowder(float morePowder)
     {
         float extraPower = 0;
         powder += morePowder;
@@ -79,7 +98,9 @@ public class CannonController : MonoBehaviour
             powder = maxPowderLoad;
         }
 
-        return extraPower;
+        IsPowderLoaded = true;
+
+        //return extraPower;
     }
     
     public float GetPowder()
@@ -116,13 +137,17 @@ public class CannonController : MonoBehaviour
         IsCannonBallLoaded = false;
 
         // Create a cannonball to be fired of the same resource that was laoded
-        GameObject cannonBall = Instantiate(Resources.Load<GameObject>(loadedCannonBall), cannonBarrel.position, cannonBarrel.rotation);
+        GameObject newProjectile = Resources.Load<GameObject>(loadedCannonBall);
+        if (newProjectile != null)
+        {
+            GameObject cannonBall = Instantiate(newProjectile, cannonBarrel.position, cannonBarrel.rotation);
 
-        // Change tag to prevent being reloaded when fired
-        cannonBall.tag = "projectile";
+            // Change tag to prevent being reloaded when fired
+            cannonBall.tag = "projectile";
 
-        // Add a force to the cannonball to propel it towards it's target
-        cannonBall.GetComponent<Rigidbody>().AddForce(cannonBarrel.forward * (powder * 3));
+            // Add a force to the cannonball to propel it towards it's target
+            cannonBall.GetComponent<Rigidbody>().AddForce(cannonBarrel.forward * (powder * 3));
+        }
 
         // Clean the cannon to prepare it for the next round
         CleanCannon();
@@ -138,6 +163,7 @@ public class CannonController : MonoBehaviour
         
         // Clear the powder
         powder = 0;
+        IsPowderLoaded = false;
     }
 
 }

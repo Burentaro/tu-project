@@ -22,7 +22,7 @@ public class CannonLoader : MonoBehaviour
                 }
 
                 // Pass to the cannon the weight and ammo type
-                cannonController.LoadCannonBall(other.gameObject.name);
+                cannonController.LoadCannonBall(actor.actorName);
                 
                 // Desctory the object as it's no longer needed
                 actor.DestroyObject(0);

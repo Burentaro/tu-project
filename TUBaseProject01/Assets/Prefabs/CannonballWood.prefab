@@ -17,9 +17,10 @@ GameObject:
   - component: {fileID: 35355035556039517}
   - component: {fileID: 9104709068673078521}
   - component: {fileID: 5891205688215265562}
+  - component: {fileID: 7522600948607297894}
   m_Layer: 0
   m_Name: CannonballWood
-  m_TagString: Untagged
+  m_TagString: Ammo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -304,3 +305,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &7522600948607297894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7757627221155369820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f6399d88edbc7e4da1dded5f97aabd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actorName: ammo_cannonBallWood
+  weight: 0
+  isDying: 0
+  secondsOfLifeAfterHit: 3

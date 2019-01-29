@@ -17,9 +17,10 @@ GameObject:
   - component: {fileID: 457003897197211683}
   - component: {fileID: 244343145010121414}
   - component: {fileID: 1717940637193007264}
+  - component: {fileID: 871813406997001005}
   m_Layer: 0
   m_Name: CannonballMetal
-  m_TagString: Untagged
+  m_TagString: Ammo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -304,3 +305,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &871813406997001005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3887230068954533625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f6399d88edbc7e4da1dded5f97aabd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actorName: ammo_cannonBallMetal
+  weight: 0
+  isDying: 0
+  secondsOfLifeAfterHit: 3
