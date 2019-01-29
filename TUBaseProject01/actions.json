@@ -36,6 +36,14 @@
       "requirement": "optional"
     },
     {
+      "name": "/actions/default/in/ButtonPressUp",
+      "type": "boolean"
+    },
+    {
+      "name": "/actions/default/in/ButtonPressDown",
+      "type": "boolean"
+    },
+    {
       "name": "/actions/default/out/Haptic",
       "type": "vibration"
     },
