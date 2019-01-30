@@ -16,6 +16,7 @@ public class CannonController : MonoBehaviour
     public Transform cannonBarrel;
     public float moveSpeed = 2;
     public AudioClip shootSound;
+    public float maxAngle = 90.0f;
 
 
     [SerializeField]
@@ -32,7 +33,6 @@ public class CannonController : MonoBehaviour
     [SerializeField]
     public bool isPowderLoaded = false;
     private float minAngle = 0.0f;
-    private float maxAngle = 90.0f;
 
 
     private void Start()
@@ -63,7 +63,9 @@ public class CannonController : MonoBehaviour
         if(newAngle >= minAngle && newAngle <= maxAngle)
         {
             // Set the new angle
-            targetRotation = Quaternion.Euler((float)-cannonAngle, cannonBarrel.transform.rotation.y, cannonBarrel.transform.rotation.z);
+//            targetRotation = Quaternion.Euler((float)-cannonAngle, cannonBarrel.transform.rotation.y, cannonBarrel.transform.rotation.z);
+            // Set the new angle
+            targetRotation = Quaternion.Euler((float)-cannonAngle, 0, 0);
             cannonAngle = newAngle;
         }
     }
@@ -151,7 +153,7 @@ public class CannonController : MonoBehaviour
 
     private void AdjustCannon()
     {
-        cannonBarrel.transform.rotation = Quaternion.Lerp(cannonBarrel.transform.rotation, targetRotation, Time.deltaTime * moveSpeed);
+        cannonBarrel.localRotation = Quaternion.Lerp(cannonBarrel.localRotation, targetRotation, Time.deltaTime * moveSpeed);
     }
 
     private void Update()
