@@ -441,7 +441,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee06f0b9f89434d548a8210373e3a592, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cannonController: {fileID: 0}
+  cannonController: {fileID: 7923526880635405125, guid: 6d50990eba04446428d1420adb350d17,
+    type: 3}
   isHeld: 0
 --- !u!114 &3965954421149194857
 MonoBehaviour:
@@ -492,7 +493,18 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   onTriggerButtonPress:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5006484138140274638}
+        m_MethodName: Fire
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &7889516350135035568
@@ -640,5 +652,5 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.13582411, y: 0.0606941, z: 0.039239943}
-  m_Center: {x: 0.027958676, y: -0.0070646405, z: -0.000000029802322}
+  m_Size: {x: 0.14475057, y: 0.0606941, z: 0.039239943}
+  m_Center: {x: 0.028828736, y: -0.0070646405, z: -0.000000029802322}
