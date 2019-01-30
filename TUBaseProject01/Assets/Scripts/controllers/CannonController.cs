@@ -27,8 +27,8 @@ public class CannonController : MonoBehaviour
     public bool isCannonLoaded = false;
     [SerializeField]
     public bool isPowderLoaded = false;
-    private float minAngle = 0.0f;
-    private float maxAngle = 90.0f;
+    private float minAngle = -25.0f;
+    private float maxAngle = 0.0f;
 
     public bool IsCannonBallLoaded
     {

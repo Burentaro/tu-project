@@ -7,11 +7,12 @@ public class SteamVRInput : MonoBehaviour
     // Steam VR Actions
     public SteamVR_Action_Boolean upButtonAction;
     public SteamVR_Action_Boolean downButtonAction;
+    public SteamVR_Action_Boolean triggerButtonAction;
 
     // Events
     public UnityEvent onButtonPressUp;
     public UnityEvent onButtonPressDown;
-    public UnityEvent onTriggerSqueezed;
+    public UnityEvent onTriggerButtonPress;
 
     // Update is called once per frame
     void Update()
@@ -31,6 +32,15 @@ public class SteamVRInput : MonoBehaviour
             if (onButtonPressUp != null)
             {
                 onButtonPressUp.Invoke();
+            }
+        }
+
+        if (SteamVR_Input._default.inActions.TriggerButtonPress.GetStateDown(SteamVR_Input_Sources.Any))
+        {
+            Debug.Log("Trigger Button Pressed");
+            if (onTriggerButtonPress != null)
+            {
+                onTriggerButtonPress.Invoke();
             }
         }
     }

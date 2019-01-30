@@ -36,5 +36,7 @@ namespace Valve.VR
         public Valve.VR.SteamVR_Action_Boolean ButtonPressUp;
         
         public Valve.VR.SteamVR_Action_Boolean ButtonPressDown;
+        
+        public Valve.VR.SteamVR_Action_Boolean TriggerButtonPress;
     }
 }
