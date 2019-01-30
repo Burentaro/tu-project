@@ -15,6 +15,8 @@ public class CannonController : MonoBehaviour
     public float maxPowderLoad = 1000.0f;
     public Transform cannonBarrel;
     public float moveSpeed = 2;
+    public AudioClip shootSound;
+
 
     [SerializeField]
     private string loadedCannonBall;
@@ -125,6 +127,11 @@ public class CannonController : MonoBehaviour
 
             // Add a force to the cannonball to propel it towards it's target
             cannonBall.GetComponent<Rigidbody>().AddForce(cannonBarrel.forward * (powder * 3));
+            AudioSource.PlayClipAtPoint(shootSound, cannonBarrel.transform.position);
+        }
+        else
+        {
+            Debug.Log("Didnt load the resource");
         }
 
         // Clean the cannon to prepare it for the next round
