@@ -14,11 +14,13 @@ public class CannonController : MonoBehaviour
 {
     public float maxPowderLoad = 1000.0f;
     public Transform cannonBarrel;
+    public float moveSpeed = 2;
 
     [SerializeField]
     private string loadedCannonBall;
     [SerializeField]
-    private float cannonAngle = 0;
+    private double cannonAngle = 0.0f;
+    private Quaternion targetRotation;
     [SerializeField]
     private float powder = 0;
 
@@ -27,8 +29,14 @@ public class CannonController : MonoBehaviour
     public bool isCannonLoaded = false;
     [SerializeField]
     public bool isPowderLoaded = false;
-    private float minAngle = -25.0f;
-    private float maxAngle = 0.0f;
+    private float minAngle = 0.0f;
+    private float maxAngle = 90.0f;
+
+
+    private void Start()
+    {
+        targetRotation = cannonBarrel.transform.rotation;
+    }
 
     public bool IsCannonBallLoaded
     {
@@ -44,21 +52,21 @@ public class CannonController : MonoBehaviour
         return powder > 0;
     }
 
-    public void AddCannonAngle(float angleValue)
+    public void AddCannonAngle(double angleValue)
     {
         // Calculate the new angle
-        float newAngle = cannonAngle + angleValue;
+        double newAngle = cannonAngle + angleValue;
         
         // Check that the new angle is within the min max bounds
         if(newAngle >= minAngle && newAngle <= maxAngle)
         {
             // Set the new angle
+            targetRotation = Quaternion.Euler((float)-cannonAngle, 0, 0);
             cannonAngle = newAngle;
-            cannonBarrel.localRotation = Quaternion.Euler(cannonAngle, 0, 0);
         }
     }
     
-    public float GetCannonAngle()
+    public double GetCannonAngle()
     {
         return cannonAngle;
     }
@@ -134,4 +142,16 @@ public class CannonController : MonoBehaviour
         powder = 0;
     }
 
+    private void AdjustCannon()
+    {
+        cannonBarrel.transform.rotation = Quaternion.Lerp(cannonBarrel.transform.rotation, targetRotation, Time.deltaTime * moveSpeed);
+    }
+
+    private void Update()
+    {
+        if(cannonBarrel.transform.rotation.x != targetRotation.x)
+        {
+            AdjustCannon();
+        }
+    }
 }
