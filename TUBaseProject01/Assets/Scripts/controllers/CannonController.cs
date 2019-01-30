@@ -63,7 +63,7 @@ public class CannonController : MonoBehaviour
         if(newAngle >= minAngle && newAngle <= maxAngle)
         {
             // Set the new angle
-            targetRotation = Quaternion.Euler((float)-cannonAngle, 0, 0);
+            targetRotation = Quaternion.Euler((float)-cannonAngle, cannonBarrel.transform.rotation.y, cannonBarrel.transform.rotation.z);
             cannonAngle = newAngle;
         }
     }
