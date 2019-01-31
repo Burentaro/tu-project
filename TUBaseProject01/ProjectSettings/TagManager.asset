@@ -11,6 +11,8 @@ TagManager:
   - button
   - Ammo
   - Powder
+  - Ground
+  - Target
   layers:
   - Default
   - TransparentFX
