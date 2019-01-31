@@ -17,6 +17,8 @@ public class SceneManager : Singleton<SceneManager>
     public UnityEvent onTargetHit;              // Event for objects to listen for the event when the projectile hits the target
     public UnityEvent onTargetMissed;           // Event for objects to listen for the event when the projectile missed the target
 
+    private Vector3 lastMarkerPosition;
+
 
     private bool hasProjectileFired = false;
     private bool isActive = false;
@@ -92,5 +94,10 @@ public class SceneManager : Singleton<SceneManager>
     {
         // Set the isActive flage to false to prevent any errors if SceneManager is destoryed earlier than other classes
         isActive = false;
+    }
+
+    public void SpawnMarkerOnPoint(Vector3 point)
+    {
+        Debug.Log("We will spawn a Marker in x=" + point.x + ", y=" + point.y + ", z=" + point.z);
     }
 }
