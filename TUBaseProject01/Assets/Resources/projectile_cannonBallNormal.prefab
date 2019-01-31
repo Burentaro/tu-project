@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2190272005307397343}
   - component: {fileID: 6931174629602072103}
   - component: {fileID: 2108176275047053128}
+  - component: {fileID: 2111589392398709173}
   m_Layer: 0
   m_Name: projectile_cannonBallNormal
   m_TagString: projectile
@@ -108,3 +109,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &2111589392398709173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3549535167112968958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98b2cd126ff5e7545be5b3e31805d01c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actorName: 
+  weight: 0
+  isDying: 0
+  hasHitTarget: 0
