@@ -13,6 +13,7 @@ TagManager:
   - Powder
   - Ground
   - Target
+  - Mark
   layers:
   - Default
   - TransparentFX

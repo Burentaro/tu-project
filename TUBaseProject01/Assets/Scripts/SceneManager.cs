@@ -17,7 +17,7 @@ public class SceneManager : Singleton<SceneManager>
     public UnityEvent onTargetHit;              // Event for objects to listen for the event when the projectile hits the target
     public UnityEvent onTargetMissed;           // Event for objects to listen for the event when the projectile missed the target
 
-    private Vector3 lastMarkerPosition;
+    private GameObject lastMarker;
 
 
     private bool hasProjectileFired = false;
@@ -98,6 +98,14 @@ public class SceneManager : Singleton<SceneManager>
 
     public void SpawnMarkerOnPoint(Vector3 point)
     {
-        Debug.Log("We will spawn a Marker in x=" + point.x + ", y=" + point.y + ", z=" + point.z);
+        if(lastMarker != null)
+        {
+            Destroy(lastMarker);
+        }
+        GameObject newHitMark = Resources.Load<GameObject>("Prefabs/HitMark");
+        if(newHitMark != null)
+        {
+            lastMarker = Instantiate(newHitMark, point, new Quaternion());
+        }
     }
 }
