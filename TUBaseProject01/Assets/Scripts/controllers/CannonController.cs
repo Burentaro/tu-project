@@ -130,6 +130,7 @@ public class CannonController : MonoBehaviour
             // Add a force to the cannonball to propel it towards it's target
             cannonBall.GetComponent<Rigidbody>().AddForce(cannonBarrel.forward * (powder * 3));
             AudioSource.PlayClipAtPoint(shootSound, cannonBarrel.transform.position);
+            SceneManager.Instance.CannonShooted((float)cannonAngle, powder, "Some Cannonball");
         }
         else
         {

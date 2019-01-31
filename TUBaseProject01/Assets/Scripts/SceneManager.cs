@@ -18,6 +18,7 @@ public class SceneManager : Singleton<SceneManager>
     public UnityEvent onTargetMissed;           // Event for objects to listen for the event when the projectile missed the target
 
     private GameObject lastMarker;
+    private ShootHistory lastShootHistory;
 
 
     private bool hasProjectileFired = false;
@@ -106,6 +107,18 @@ public class SceneManager : Singleton<SceneManager>
         if(newHitMark != null)
         {
             lastMarker = Instantiate(newHitMark, point, new Quaternion());
+            lastShootHistory.setHitTarget("MISS");
         }
+    }
+
+
+    public void CannonShooted(float angle, float powder, string cannonBall)
+    {
+        lastShootHistory = new ShootHistory(angle, powder, cannonBall);
+    }
+
+    public ShootHistory getLastShoot()
+    {
+        return lastShootHistory;
     }
 }
