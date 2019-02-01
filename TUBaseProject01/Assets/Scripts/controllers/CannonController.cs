@@ -5,10 +5,10 @@ using UnityEditor;
 using UnityEngine.Events;
 
 [System.Serializable]
-public class PowderLoaderEvent : UnityEvent<float>
-{
+public class PowderLoaderEvent : UnityEvent<float>{ }
 
-}
+[System.Serializable]
+public class CannonUpdateEvent : UnityEvent<float,float,string> { }
 
 public class CannonController : MonoBehaviour
 {
@@ -18,6 +18,7 @@ public class CannonController : MonoBehaviour
     public AudioClip shootSound;
     public float maxAngle = 90.0f;
 
+    public CannonUpdateEvent OnCannonUpdate;
 
     [SerializeField]
     private string loadedCannonBall;
@@ -68,7 +69,11 @@ public class CannonController : MonoBehaviour
             // Set the new angle
             targetRotation = Quaternion.Euler((float)-cannonAngle, 0, 0);
             cannonAngle = newAngle;
+
+            // Notify listeners of the update
+            OnCannonUpdate.Invoke((float)cannonAngle, powder, loadedCannonBall);
         }
+
     }
     
     public double GetCannonAngle()
@@ -84,6 +89,9 @@ public class CannonController : MonoBehaviour
         {
             extraPower = powder - maxPowderLoad;
             powder = maxPowderLoad;
+
+            // Notify listeners of the update
+            OnCannonUpdate.Invoke((float)cannonAngle, powder, loadedCannonBall);
         }
     }
     
@@ -106,6 +114,9 @@ public class CannonController : MonoBehaviour
 
         // Set the flag so that only one cannonball is loaded
         IsCannonBallLoaded = true;
+
+        // Notify listeners of the update
+        OnCannonUpdate.Invoke((float)cannonAngle, powder, loadedCannonBall);
 
         // Load successful
         return true;
@@ -135,7 +146,7 @@ public class CannonController : MonoBehaviour
         }
         else
         {
-            Debug.Log("Didnt load the resource");
+            Debug.Log("Didn't load the resource");
         }
 
         // Clean the cannon to prepare it for the next round
