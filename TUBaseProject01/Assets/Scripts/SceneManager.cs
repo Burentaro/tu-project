@@ -2,6 +2,9 @@
 using System.Collections;
 using UnityEngine.Events;
 
+[System.Serializable]
+public class OnTargetMissedEvent : UnityEvent<ShootHistory> { }
+
 public class SceneManager : Singleton<SceneManager>
 {
     [SerializeField]
@@ -13,8 +16,8 @@ public class SceneManager : Singleton<SceneManager>
     [SerializeField]
     private CannonController cannonController;  // Reference to the CannonController for other objects to be able to access
     
-    public UnityEvent onTargetHit;              // Event for objects to listen for the event when the projectile hits the target
-    public UnityEvent onTargetMissed;           // Event for objects to listen for the event when the projectile missed the target
+    public OnTargetMissedEvent onTargetHit;              // Event for objects to listen for the event when the projectile hits the target
+    public OnTargetMissedEvent onTargetMissed;           // Event for objects to listen for the event when the projectile missed the target
 
     private GameObject lastMarker;
     private ShootHistory lastShootHistory;
