@@ -22,11 +22,11 @@ public class SimplifyMenuController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        addPowderBT.onClick.AddListener(loadPowder);
-        loadCannonBall.onClick.AddListener(loadCB);
-        fireCannon.onClick.AddListener(shoot);
-        addAngle.onClick.AddListener(addAng);
-        restAngle.onClick.AddListener(substractAngle);
+        addPowderBT.onClick.AddListener(LoadPowder);
+        loadCannonBall.onClick.AddListener(LoadCB);
+        fireCannon.onClick.AddListener(Shoot);
+        addAngle.onClick.AddListener(AddAng);
+        restAngle.onClick.AddListener(SubstractAngle);
     }
 
     // Update is called once per frame
@@ -43,35 +43,35 @@ public class SimplifyMenuController : MonoBehaviour
         cannonAngleText.text = cannonController.GetCannonAngle() + "%";
 
         powderText.text = cannonController.GetPowder() + " g";
-        ShootHistory shootHistory = SceneManager.Instance.getLastShoot();
+        ShootHistory shootHistory = SceneManager.Instance.GetLastShoot();
         if (shootHistory != null)
         {
 
-            displayText.text = "Last Shoot: Angle = " + shootHistory.getAngle() + " Cannonball = " + shootHistory.getCannonBall() + " Gunpowder = " + shootHistory.getPowder() + " Shoot Distance = " + shootHistory.getShotDistance();
+            displayText.text = "Last Shoot: Angle = " + shootHistory.GetAngle() + " Cannonball = " + shootHistory.GetCannonBall() + " Gunpowder = " + shootHistory.GetPowder() + " Shoot Distance = " + shootHistory.GetShotDistance();
         }
     }
 
-    public void loadPowder()
+    public void LoadPowder()
     {
         cannonController.AddPowder(500);
     }
 
-    private void loadCB()
+    private void LoadCB()
     {
         cannonController.LoadCannonBall(cannonBall);
     }
 
-    private void addAng()
+    private void AddAng()
     {
         cannonController.AddCannonAngle(angleIncrement);
     }
 
-    private void substractAngle()
+    private void SubstractAngle()
     {
         cannonController.AddCannonAngle(- angleIncrement);
     }
 
-    private void shoot()
+    private void Shoot()
     {
         cannonController.Shoot();
     }

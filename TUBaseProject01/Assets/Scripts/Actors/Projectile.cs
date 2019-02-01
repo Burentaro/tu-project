@@ -25,6 +25,9 @@ public class Projectile : Actor
 
             // Set the flag that the projectile has hit a target
             hasHitTarget = true;
+
+            // Notify the SceneManager that it has hit a target
+            SceneManager.Instance.HitTarget();
         }
         else if (collision.gameObject.tag == "Ground")
         {
@@ -42,7 +45,7 @@ public class Projectile : Actor
                 ContactPoint contactPoint = collision.GetContact(0);
 
                 // Pass the point of contact to the SceneManager to place a marker
-                SceneManager.Instance.SpawnMarkerOnPoint(contactPoint.point);
+                SceneManager.Instance.MissedTarget(contactPoint.point);
 
                 
             }

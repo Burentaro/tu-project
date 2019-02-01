@@ -12,5 +12,27 @@ public class UICannon : MonoBehaviour
     public void OnCannonUpdated(float angle, float powder, string cannonBall)
     {
         // Update the UI elements
+        if (cannonballText != null)
+        {
+            if(string.IsNullOrEmpty(cannonBall))
+            {
+                cannonballText.text = "0";
+            }
+            else
+            {
+                cannonballText.text = cannonBall;
+            }
+        }
+
+        if(powderText != null)
+        {
+            powderText.text = powder.ToString() + "g";
+        }
+
+        if(angleText != null)
+        {
+            angleText.text = angle.ToString() + " degrees";
+        }
+        
     }
 }

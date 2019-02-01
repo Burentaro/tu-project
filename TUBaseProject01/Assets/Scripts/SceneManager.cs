@@ -39,11 +39,11 @@ public class SceneManager : Singleton<SceneManager>
         }
     }
 
-    public void setDistanceFromCannon(float distance)
+    public void SetDistanceFromCannon(float distance)
     {
         if(lastShootHistory != null)
         {
-            lastShootHistory.setShotDistance(distance);
+            lastShootHistory.SetShotDistance(distance);
         }
     }
 
@@ -105,19 +105,44 @@ public class SceneManager : Singleton<SceneManager>
         if(newHitMark != null)
         {
             lastMarker = Instantiate(newHitMark, point, new Quaternion());
-            lastShootHistory.setHitTarget("MISS");
-            lastShootHistory.setShotDistance(Vector3.Distance(point, CannonStartPoint.position));
+            lastShootHistory.SetHitTarget("MISS");
+            lastShootHistory.SetShotDistance(Vector3.Distance(point, CannonStartPoint.position));
+        }
+
+        if(onTargetMissed != null)
+        {
+            onTargetMissed.Invoke(lastShootHistory);
         }
     }
 
-
-    public void CannonShooted(float angle, float powder, string cannonBall)
+    public void CannonShot(float angle, float powder, string cannonBall)
     {
         lastShootHistory = new ShootHistory(angle, powder, cannonBall);
     }
 
-    public ShootHistory getLastShoot()
+    public ShootHistory GetLastShoot()
     {
         return lastShootHistory;
+    }
+
+    public float GetTargetDistance()
+    {
+        return 0.0f;
+    }
+
+    public void MissedTarget(Vector3 point)
+    {
+        SpawnMarkerOnPoint(point);
+    }
+
+    public void HitTarget()
+    {
+        lastShootHistory.SetHitTarget("HIT");
+        lastShootHistory.SetShotDistance(GetTargetDistance());
+
+        if (onTargetHit != null)
+        {
+            onTargetHit.Invoke(lastShootHistory);
+        }
     }
 }
