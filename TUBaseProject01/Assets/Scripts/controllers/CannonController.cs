@@ -38,6 +38,7 @@ public class CannonController : MonoBehaviour
     private void Start()
     {
         targetRotation = cannonBarrel.transform.rotation;
+        SceneManager.Instance.CannonStartPoint = cannonBarrel.transform;
     }
 
     public bool IsCannonBallLoaded

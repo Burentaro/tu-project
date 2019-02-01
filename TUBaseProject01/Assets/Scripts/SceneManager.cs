@@ -5,7 +5,8 @@ using UnityEngine.Events;
 public class SceneManager : Singleton<SceneManager>
 {
     [SerializeField]
-    private Transform currentProjectile;        // Holds a reference to the current projectile that has been fired
+    private Transform cannonStartPoint;            // Holds a reference to the current target's location
+
     [SerializeField]
     private Transform currentTarget;            // Holds a reference to the current target's location
 
@@ -43,19 +44,6 @@ public class SceneManager : Singleton<SceneManager>
         }
     }
 
-    public Transform CurrentProjectile
-    {
-        get
-        {
-            return currentProjectile;
-        }
-
-        set
-        {
-            currentProjectile = value;
-        }
-    }
-
     public Transform CurrentTarget
     {
         get
@@ -66,6 +54,20 @@ public class SceneManager : Singleton<SceneManager>
         set
         {
             currentTarget = value;
+        }
+    }
+
+
+    public Transform CannonStartPoint
+    {
+        get
+        {
+            return cannonStartPoint;
+        }
+
+        set
+        {
+            cannonStartPoint = value;
         }
     }
 
@@ -101,6 +103,7 @@ public class SceneManager : Singleton<SceneManager>
         {
             lastMarker = Instantiate(newHitMark, point, new Quaternion());
             lastShootHistory.setHitTarget("MISS");
+            lastShootHistory.setShotDistance(Vector3.Distance(point, CannonStartPoint.position));
         }
     }
 
