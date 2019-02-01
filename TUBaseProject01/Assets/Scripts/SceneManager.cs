@@ -7,8 +7,6 @@ public class SceneManager : Singleton<SceneManager>
     [SerializeField]
     private Transform currentProjectile;        // Holds a reference to the current projectile that has been fired
     [SerializeField]
-    private float distanceFromCannon;           // Record of the last recorded distance of the cannonball to the cannon
-    [SerializeField]
     private Transform currentTarget;            // Holds a reference to the current target's location
 
     [SerializeField]
@@ -37,16 +35,11 @@ public class SceneManager : Singleton<SceneManager>
         }
     }
 
-    public float DistanceFromCannon
+    public void setDistanceFromCannon(float distance)
     {
-        get
+        if(lastShootHistory != null)
         {
-            return distanceFromCannon;
-        }
-
-        set
-        {
-            distanceFromCannon = value;
+            lastShootHistory.setShotDistance(distance);
         }
     }
 

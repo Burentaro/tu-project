@@ -9,6 +9,7 @@ public class SimplifyMenuController : MonoBehaviour
     public Text cannonBallText;
     public Text powderText;
     public Text cannonAngleText;
+    public Text displayText;
     public Button addPowderBT;
     public Button loadCannonBall;
     public Button fireCannon;
@@ -42,6 +43,12 @@ public class SimplifyMenuController : MonoBehaviour
         cannonAngleText.text = cannonController.GetCannonAngle() + "%";
 
         powderText.text = cannonController.GetPowder() + " g";
+        ShootHistory shootHistory = SceneManager.Instance.getLastShoot();
+        if (shootHistory != null)
+        {
+
+            displayText.text = "Last Shoot: Angle = " + shootHistory.getAngle() + " Cannonball = " + shootHistory.getCannonBall() + " Gunpowder = " + shootHistory.getPowder() + " Shoot Distance = " + shootHistory.getShotDistance();
+        }
     }
 
     public void loadPowder()
