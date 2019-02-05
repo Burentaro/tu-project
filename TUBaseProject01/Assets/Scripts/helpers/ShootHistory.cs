@@ -1,5 +1,4 @@
-﻿using System;
-public class ShootHistory
+﻿public class ShootHistory
 {
     private float angle = 0;
     private float powder = 0;
@@ -14,56 +13,56 @@ public class ShootHistory
         this.cannonBall = newCannonBall;
     }
 
-    public float getAngle()
+    public float GetAngle()
     {
         return angle;
     }
 
-    public void setAngle(float newAngle)
+    public void SetAngle(float newAngle)
     {
         angle = newAngle;
     }
 
 
-    public float getPowder()
+    public float GetPowder()
     {
         return powder;
     }
 
-    public void setPowder(float newPowder)
+    public void SetPowder(float newPowder)
     {
         powder = newPowder;
     }
 
 
-    public string getCannonBall()
+    public string GetCannonBall()
     {
         return cannonBall;
     }
 
-    public void setCannonBall(string newCannonBall)
+    public void SetCannonBall(string newCannonBall)
     {
         cannonBall = newCannonBall;
     }
 
 
-    public string getHitTarget()
+    public string GetHitTarget()
     {
         return hitTarget;
     }
 
-    public void setHitTarget(string newHitTarget)
+    public void SetHitTarget(string newHitTarget)
     {
         hitTarget = newHitTarget;
     }
 
 
-    public float getShotDistance()
+    public float GetShotDistance()
     {
         return shotDistance;
     }
 
-    public void setShotDistance(float newShotDistance)
+    public void SetShotDistance(float newShotDistance)
     {
         shotDistance = newShotDistance;
     }

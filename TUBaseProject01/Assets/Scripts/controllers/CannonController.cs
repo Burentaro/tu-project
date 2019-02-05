@@ -71,7 +71,10 @@ public class CannonController : MonoBehaviour
             cannonAngle = newAngle;
 
             // Notify listeners of the update
-            OnCannonUpdate.Invoke((float)cannonAngle, powder, loadedCannonBall);
+            if (OnCannonUpdate != null)
+            {
+                OnCannonUpdate.Invoke((float)cannonAngle, powder, loadedCannonBall);
+            }
         }
 
     }
@@ -89,8 +92,11 @@ public class CannonController : MonoBehaviour
         {
             extraPower = powder - maxPowderLoad;
             powder = maxPowderLoad;
+        }
 
-            // Notify listeners of the update
+        // Notify listeners of the update
+        if (OnCannonUpdate != null)
+        {
             OnCannonUpdate.Invoke((float)cannonAngle, powder, loadedCannonBall);
         }
     }
@@ -116,7 +122,10 @@ public class CannonController : MonoBehaviour
         IsCannonBallLoaded = true;
 
         // Notify listeners of the update
-        OnCannonUpdate.Invoke((float)cannonAngle, powder, loadedCannonBall);
+        if (OnCannonUpdate != null)
+        {
+            OnCannonUpdate.Invoke((float)cannonAngle, powder, loadedCannonBall);
+        }
 
         // Load successful
         return true;
@@ -142,7 +151,7 @@ public class CannonController : MonoBehaviour
             // Add a force to the cannonball to propel it towards it's target
             cannonBall.GetComponent<Rigidbody>().AddForce(cannonBarrel.forward * (powder * 3));
             AudioSource.PlayClipAtPoint(shootSound, cannonBarrel.transform.position);
-            SceneManager.Instance.CannonShooted((float)cannonAngle, powder, "Some Cannonball");
+            SceneManager.Instance.CannonShot((float)cannonAngle, powder, "Some Cannonball");
         }
         else
         {
@@ -151,6 +160,12 @@ public class CannonController : MonoBehaviour
 
         // Clean the cannon to prepare it for the next round
         CleanCannon();
+
+        // Notify listeners of the update
+        if (OnCannonUpdate != null)
+        {
+            OnCannonUpdate.Invoke((float)cannonAngle, powder, loadedCannonBall);
+        }
     }
 
     private void CleanCannon()
